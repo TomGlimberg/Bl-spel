@@ -1,0 +1,164 @@
+
+.container {
+	display: grid;
+	grid-template-rows: 1fr 1fr 1fr auto; /* eller repeat(3, 1fr) auto */
+	grid-template-columns: repeat(3, 1fr);
+	grid-template-areas:
+	  'content content content_K'
+	  'content content content_K'
+	  'content content content_K'
+	  'footer footer footer';
+  
+	background-color: #2196F3;
+	padding: 5px;
+	padding-top: 40px;
+	min-height: 100vh; /* fyler sermen och kan växa */
+  
+
+}
+@media only screen and (max-width: 600px) {/*pading när den i mobiläge*/
+	.mobile-padding {
+	  padding-top: 170px !important;
+	}
+  }
+  
+.grid-item {
+	background-color: rgba(255, 255, 255, 0.8);
+	border: 1px solid rgba(0, 0, 0, 0.8);
+	padding: 20px;
+	font-size: 30px;  
+}
+.container > div {
+  background-color: rgba(255, 255, 255, 0.8);
+  padding: 10px;
+}
+
+.container > div.content {
+  grid-area: content;
+}
+.container > div.content_K {
+	grid-area: content_K;
+  }
+.container > div.footer {
+  grid-area: footer;
+}
+
+li a:hover:not(.active) {
+    color: rgb(233, 22, 248);
+  }
+.active {
+	color: rgb(233, 22, 248);
+}
+
+.nav {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  background-color: #333;
+}
+
+ul{
+  position: fixed;
+  top: 0;
+  width: 100%;
+}
+
+.li {
+  float: left;
+}
+
+.navbar {
+  display: block;
+  color: white;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+}
+#navImg{
+	width: 30px; 
+	height: 30px;
+	padding-top: 7px;
+}
+
+
+.content{
+	grid-area: content;
+}
+
+.content_K{
+	grid-area: content_K;
+}
+
+
+.footer{
+	grid-area: footer;
+}
+
+
+.flex-container {
+	display: flex;
+	flex-wrap: nowrap;
+	padding-top: 10px;
+}
+
+.flex-container > div {
+width: 10px;
+margin: 10px;
+text-align: center;
+line-height: 20px;
+font-size: 15px;
+}
+
+p{
+	font-size: 50%;
+	text-align: center;
+}
+
+button{
+	padding: 20px 20px;
+	
+}
+menu{
+	list-style-type: none;
+	font-size: 50%;
+}
+
+#email{
+	padding-top: 15px;
+	color: rgb(227, 18, 133);
+}
+.button_M{
+	padding: 1px 20px;
+}
+.button_MH{/*behövedes en till class gömma */
+	padding: 1px 20px;
+}
+#Img_F{
+	width: 70%; 
+	height: 70%;
+	
+}
+
+#Img_CK{
+	width: 50%; 
+	height: 50%;
+	
+}
+.center {
+	display: block;
+	margin-left: auto;
+	margin-right: auto;
+	width: 50%;
+}
+h2{
+	text-align: center;
+}
+
+
+.full-width-button {
+	width: 100%;
+	display: block;
+	margin-bottom: 5px; /* valfritt mellanrum mellan knappar */
+	margin-top: 3px;
+}

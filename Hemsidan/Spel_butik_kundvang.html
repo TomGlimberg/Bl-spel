@@ -1,0 +1,138 @@
+
+<!DOCTYPE html>
+<html lang="sv">
+<head>
+  <meta charset="UTF-8" />
+  <link rel="stylesheet" href="../CSS/Spel_kundvagn_styls.css">
+	<link rel="stylesheet" href="https://www.w3schools.com/w3css/5/w3.css">
+    <title>Blå Spel</title>
+	<link rel="icon" type="image/x-icon" href="../Bilder/Företags_logga.png">
+	
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  
+
+</head>
+<body>
+
+  <ul class ="nav  w3-hide-small">
+			
+    <li class ="li"><img id ="navImg" src="../Bilder/Företags_logga.png" alt="Trulli"></li>
+    <li class ="li"><a class="navbar" class="active" href="Spel_butik.html"> Butik</a></li>	  
+  
+    <li class ="li"><a class="navbar"  href="Spel_butik_2D.html">2D</a></li>
+    <li class ="li"><a class="navbar" href="Spel_butik_3D.html">3D</a></li>
+
+    <li class ="li"><a class="navbar material-icons" class="active" href="Spel_butik_kundvang.html">&#xe8cc;</a></li>	  
+
+
+    <li style="float:right" class ="li"><a class="navbar" href="Spel_butik_login.html">login</a></li>
+    <li style="float:right" class ="li"><a class="navbar" href="Spel_butik_sign_up.html">sign up</a></li>
+    
+    <li hidden style="float:right" id="email" class ="li"><a class="navbar"></a></li>
+    
+  </ul>
+
+  <ul class="nav w3-hide-large w3-hide-medium">
+
+    <li class ="li"><a class="navbar material-icons" class="active" href="Spel_butik_kundvang.html">&#xe8cc;</a></li>
+    <li class ="li"><img id ="navImg" src="../Bilder/Företags_logga.png" alt="Trulli"></li>
+
+
+    <li style="float:right" class ="li"><a class="navbar" href="Spel_butik_login.html">login</a></li>
+     <li style="float:right" class ="li"><a class="navbar" href="Spel_butik_sign_up.html">sign up</a></li>
+    <li hidden style="float:right" id="email" class ="li"><a class="navbar"></a></li>
+
+    <li class ="li w3-mobile"><a class="navbar" class="active" href="Spel_butik.html"> Butik</a></li>	  
+    <li class ="li w3-mobile"><a class="navbar" href="Spel_butik_2D.html">2D</a></li>
+    <li class ="li w3-mobile"><a class="navbar" href="Spel_butik_3D.html">3D</a></li>
+
+  </ul>
+  <div class="container mobile-padding ">
+    <div class="grid-item content">	
+
+      <h1>🛒 Din Varukorg</h1>
+      <ul id="cart-items"></ul>
+      <p id="total"></p>
+      <button onclick="clearCart()">Köp</button><!-- tömma listan -->
+    </div>
+
+    <div class="grid-item footer"> 
+			
+			<div class="w3-row-padding w3-center">
+				<div class="w3-col s12 m6 l2">
+				  <img id="Img_F" src="../Bilder/Företags_logga.png">
+				</div>
+			  
+				<div class="w3-col s12 m6 l2">
+				  <p>Blå Spel</p>
+				</div>
+			  
+				<div class="w3-col s12 m6 l2">
+				  <p>Blå.Spel@hotmail.com</p>
+				</div>
+			  
+				<div class="w3-col s12 m6 l2">
+				  <menu style="list-style-type: none; padding: 0;">
+            <li><a target="_blank"  href="https://www.facebook.com/?locale=sv_SE">Facebook</a></li>
+            <li><a target="_blank"  href="https://www.instagram.com/">Instagram</a></li>
+				  </menu>
+				</div>
+			  
+				<div class="w3-col s12 m6 l2">
+				  <p>tovärdigväg 666</p>
+				</div>
+			  
+				<div class="w3-col s12 m6 l2">
+				  <button type="button" class="w3-medium" onclick="window.location.href='Spel_butik_login.html'">Login</button>
+				</div>
+			</div>
+
+		  </div>
+  </div>
+  <script>
+    function getCart() {
+      return JSON.parse(localStorage.getItem("cart")) || [];
+    }
+
+    function renderCart() {
+      const cart = getCart();
+      const list = document.getElementById("cart-items");
+      const totalEl = document.getElementById("total");
+
+      list.innerHTML = "";
+      let total = 0;
+
+      cart.forEach(item => {
+        const li = document.createElement("li");
+        li.textContent = `${item.name}  - ${item.price * item.quantity} kr`;
+        list.appendChild(li);
+        total += item.price * item.quantity;
+      });
+
+      totalEl.textContent = `Totalt: ${total} kr`;
+    }
+
+    function clearCart() {
+      localStorage.removeItem("cart");
+      renderCart();
+    }
+    
+		let savedUser = localStorage.getItem("user");
+		document.addEventListener("DOMContentLoaded", function() {
+		if (savedUser) {
+			
+			let user = JSON.parse(savedUser);
+			let text = user.username;
+			let part = text.slice(0,13);
+
+			document.getElementById("email").textContent = part; 
+			document.getElementById("email").hidden = false; // Visa elementet
+		}
+		});
+
+    // Visa varukorg när sidan laddas
+    renderCart();
+  </script>
+</body>
+</html>

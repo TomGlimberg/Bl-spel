@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+	
+	<body>
+		
+		
+
+		<form method="POST" onsubmit="return loadUser(event)">
+			<label for="Användarnamn">Emial:</label><br>
+			<input type="email" id="Användarnamn" name="Användarnamn" required><br>
+			  
+			<label for="Lösenord">Lösenord:</label><br>
+			<input type="password" id="Lösenord" name="Lösenord" required minlength="8" ><br><br>
+			  
+			<input type="submit" value="Login">
+			
+		</form> 
+
+		<p id="display"></p>
+
+<script>
+		// Retrieve
+		function loadUser(event) {
+			event.preventDefault(); // Förhindrar att sidan laddas om
+		let savedUser = localStorage.getItem("user");
+		
+		let L_username = document.getElementById("Användarnamn").value;
+		let L_password = document.getElementById("Lösenord").value;
+
+		if (savedUser) {
+			let user = JSON.parse(savedUser); // Omvandla JSON-sträng till objekt
+			if(L_username == user.username && L_password == user.password){
+				document.getElementById("display").textContent = `Välkomen ${user.username}`;
+
+				setTimeout(function() {
+					window.location.href = "online_tutorial.html";
+				}, 1000);
+
+			}else{
+				document.getElementById("display").textContent = "email eller lösenord fel";
+			}
+			
+		} else {
+			document.getElementById("display").textContent = "Ingen användare sparad.";
+		}
+	}
+</script>
+
+	</body>
+</html>

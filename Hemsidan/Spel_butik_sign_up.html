@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+	<body>
+		
+		
+
+		<form method="POST" onsubmit="return saveUser(event)">
+			
+			<label for="Användarnamn">Emial:</label><br>
+			<input type="email" id="Användarnamn" name="Användarnamn" required><br>
+			  
+			<label for="Lösenord">Lösenord:</label><br>
+			<input type="password" id="Lösenord" name="Lösenord" required minlength="8" ><br><br>
+			  
+			<label for="Confirm_Lösenord">Confirm Lösenord:</label><br>
+			<input type="password" id="Confirm_Lösenord" name="Confirm_Lösenord" required minlength="8" ><br><br>
+
+			
+			
+			<label for="registreringsvillkor">Jag går med på vilkoren</label><br><br>
+			<input type="button" onclick="alert('informaskon kommer vi spara')" value="Vilkoren!"><br>  <!--onclick går in på en pyton foiskon -->
+			<input type="checkbox" id="registreringsvillkor" name="registreringsvillkor" required value="Ja">ja<br><br>
+			
+			<input type="submit" value="Submit" >
+			<input type="reset" value="Reset">
+		</form> 
+		
+
+<script>
+	function saveUser(event) {
+		event.preventDefault(); // Förhindrar att formuläret skickas och sidan laddas om
+		let username = document.getElementById("Användarnamn").value;
+		let password = document.getElementById("Lösenord").value;
+		let Confirm_password = document.getElementById("Confirm_Lösenord").value;
+
+
+		if ( !username.includes(".")) {
+        alert("Email måste innehålla '.'");
+		}else{
+
+		if(password == Confirm_password){
+
+			if (username && password) {
+				let user = { username: username, password: password };
+				localStorage.setItem("user", JSON.stringify(user)); // Spara som JSON-sträng
+				alert("Välkomen" + " " + username);
+				
+				setTimeout(function() {
+						window.location.href = "Spel_butik.html";
+					}, 1000);
+					
+			} else {
+				alert("Fyll i både emila och lösenord!");
+			}
+		} else{
+			alert("Lösenord och Confirm Lösenord är inte samma!");
+		}
+	}
+	}
+</script>
+
+	</body>
+</html>
