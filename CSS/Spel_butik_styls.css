@@ -153,4 +153,13 @@ menu{
   .card-hover {
 	transition: all 0.3s ease;
   }
+form{
+	text-align: center;
+}
+input[type="checkbox"] {
+	width: 15px;
+	height: 15px;
+	transform: scale(1.5); /* Skalar upp kryssrutan */
+	accent-color: #4b274c; /* Ändrar färg (fungerar i moderna webbläsare) */
+  }
   
