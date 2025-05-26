@@ -1,0 +1,165 @@
+
+.container {
+	display: grid;
+	grid-template-rows: 1fr 1fr 1fr auto; /* eller repeat(3, 1fr) auto */
+	grid-template-columns: repeat(3, 1fr);
+	grid-template-areas:
+	  'content content content'
+	  'content content content'
+	  'content content content'
+	  'footer footer footer';
+  
+	background-color: #2196F3;
+	padding: 5px;
+	padding-top: 40px;
+	min-height: 100vh; /* fyler sermen och kan växa */
+  
+
+}
+@media only screen and (max-width: 600px) {/*pading när den i mobiläge*/
+	.mobile-padding {
+	  padding-top: 170px !important;
+	}
+  }
+  
+.grid-item {
+	background-color: rgba(255, 255, 255, 0.8);
+	border: 1px solid rgba(0, 0, 0, 0.8);
+	padding: 20px;
+	font-size: 30px;  
+}
+
+#cart-items {
+	padding: 0;
+	margin: 0 auto;
+	max-width: 600px;
+	font-size: 16px;
+	list-style-type: none;
+	text-align: center;
+}
+  
+
+
+
+.container > div {
+  background-color: rgba(255, 255, 255, 0.8);
+  padding: 10px;
+}
+
+.container > div.content {
+  grid-area: content;
+}
+.container > div.footer {
+  grid-area: footer;
+}
+
+li a:hover:not(.active) {
+    color: rgb(233, 22, 248);
+  }
+.active {
+	color: rgb(233, 22, 248);
+}
+
+.nav {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  background-color: #333;
+}
+
+ul{
+  position: fixed;
+  top: 0;
+  width: 100%;
+}
+
+.li {
+  float: left;
+}
+
+.navbar {
+  display: block;
+  color: white;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+}
+#navImg{
+	width: 30px; 
+	height: 30px;
+	padding-top: 7px;
+}
+
+
+.content{
+	grid-area: content;
+}
+
+.footer{
+	grid-area: footer;
+}
+
+
+.flex-container {
+	display: flex;
+	flex-wrap: nowrap;
+	padding-top: 10px;
+}
+
+.flex-container > div {
+width: 10px;
+margin: 10px;
+text-align: center;
+line-height: 20px;
+font-size: 15px;
+}
+
+p{
+	font-size: 50%;
+}
+
+button{
+	padding: 20px 20px;
+	
+}
+menu{
+	list-style-type: none;
+	font-size: 50%;
+}
+
+#email{
+	padding-top: 15px;
+	color: rgb(227, 18, 133);
+}
+.button_M{
+	padding: 1px 20px;
+}
+.button_MH{/*behövedes en till class gömma */
+	padding: 1px 20px;
+}
+#Img_F{
+	width: 70%; 
+	height: 70%;
+	
+}
+
+.card-hover:hover {
+	transform: scale(1.03);
+	box-shadow: 0 8px 16px rgba(0,0,0,0.3);
+	transition: all 0.3s ease;
+  }
+  
+.card-hover {
+	transition: all 0.3s ease;
+}
+  
+form{
+	text-align: center;
+}
+input[type="checkbox"] {
+	width: 15px;
+	height: 15px;
+	transform: scale(1.5); /* Skalar upp kryssrutan */
+	accent-color: #13d356; /* Ändrar färg (fungerar i moderna webbläsare) */
+  }

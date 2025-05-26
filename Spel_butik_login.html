@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<link rel="stylesheet" href="../CSS/Spel_butik_styls.css">
+		<link rel="stylesheet" href="https://www.w3schools.com/w3css/5/w3.css">
+		<title>Blå Spel</title>
+		<link rel="icon" type="image/x-icon" href="../Bilder/Företags_logga.png">
+		
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+	
+	  </head>
+	
+	<body>
+		
+		<ul class ="nav  w3-hide-small">
+			
+			<li class ="li"><img id ="navImg" src="../Bilder/Företags_logga.png" alt="Trulli"></li>
+			<li class ="li"><a class="navbar" class="active" href="Spel_butik.html"> Butik</a></li>	  
+		  
+			<li class ="li"><a class="navbar"  href="Spel_butik_2D.html">2D</a></li>
+			<li class ="li"><a class="navbar" href="Spel_butik_3D.html">3D</a></li>
+  
+			<li class ="li"><a class="navbar material-icons" class="active" href="Spel_butik_kundvang.html">&#xe8cc;</a></li>	  
+   
+  
+			<li style="float:right" class ="li"><a class="navbar" href="Spel_butik_login.html">login</a></li>
+			<li style="float:right" class ="li"><a class="navbar" href="Spel_butik_sign_up.html">sign up</a></li>
+			
+			<li hidden style="float:right" id="email" class ="li"><a class="navbar"></a></li>
+			
+		  </ul>
+  
+		  <ul class="nav w3-hide-large w3-hide-medium">
+  
+			  <li class ="li"><a class="navbar material-icons" class="active" href="Spel_butik_kundvang.html">&#xe8cc;</a></li>
+			  <li class ="li"><img id ="navImg" src="../Bilder/Företags_logga.png" alt="Trulli"></li>
+  
+  
+			  <li style="float:right" class ="li"><a class="navbar" href="Spel_butik_login.html">login</a></li>
+			   <li style="float:right" class ="li"><a class="navbar" href="Spel_butik_sign_up.html">sign up</a></li>
+			  <li hidden style="float:right" id="email" class ="li"><a class="navbar"></a></li>
+  
+			  <li class ="li w3-mobile"><a class="navbar" class="active" href="Spel_butik.html"> Butik</a></li>	  
+			  <li class ="li w3-mobile"><a class="navbar" href="Spel_butik_2D.html">2D</a></li>
+			  <li class ="li w3-mobile"><a class="navbar" href="Spel_butik_3D.html">3D</a></li>
+  
+		  </ul>
+		  <div class="container mobile-padding">
+			<div class="grid-item content">		
+
+				<form method="POST" onsubmit="return loadUser(event)">
+					<label for="Användarnamn">Emial:</label><br>
+					<input type="email" id="Användarnamn" name="Användarnamn" required><br>
+					
+					<label for="Lösenord">Lösenord:</label><br>
+					<input type="password" id="Lösenord" name="Lösenord" required minlength="8" ><br><br>
+					
+					<input type="submit" value="Login">
+					
+				</form> 
+
+				<p id="display"></p>
+			</div>
+			<div class="grid-item footer"> 
+			
+				<div class="w3-row-padding w3-center">
+					<div class="w3-col s12 m6 l2">
+					  <img id="Img_F" src="../Bilder/Företags_logga.png">
+					</div>
+				  
+					<div class="w3-col s12 m6 l2">
+					  <p>Blå Spel</p>
+					</div>
+				  
+					<div class="w3-col s12 m6 l2">
+					  <p>Blå.Spel@hotmail.com</p>
+					</div>
+				  
+					<div class="w3-col s12 m6 l2">
+					  <menu style="list-style-type: none; padding: 0;">
+						<li><a target="_blank"  href="https://www.facebook.com/?locale=sv_SE">Facebook</a></li>
+						<li><a target="_blank"  href="https://www.instagram.com/">Instagram</a></li>
+					  </menu>
+					</div>
+				  
+					<div class="w3-col s12 m6 l2">
+					  <p>tovärdigväg 666</p>
+					</div>
+				  
+					
+				  </div>
+				  
+			  </div>
+		  </div>
+
+<script>
+		// Retrieve
+		function loadUser(event) {
+			event.preventDefault(); // Förhindrar att sidan laddas om
+		let savedUser = localStorage.getItem("user");
+		
+		let L_username = document.getElementById("Användarnamn").value;
+		let L_password = document.getElementById("Lösenord").value;
+
+		if (savedUser) {
+			let user = JSON.parse(savedUser); // Omvandla JSON-sträng till objekt
+			if(L_username == user.username && L_password == user.password){
+				document.getElementById("display").textContent = `Välkomen ${user.username}`;
+
+				setTimeout(function() {
+					window.location.href = "Spel_butik.html";
+				}, 1000);
+
+			}else{
+				document.getElementById("display").textContent = "email eller lösenord fel";
+			}
+			
+		} else {
+			document.getElementById("display").textContent = "Ingen användare sparad.";
+		}
+	}
+
+	
+</script>
+
+	</body>
+</html>
